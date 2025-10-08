@@ -1,0 +1,45 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        //1 zadanie
+        int n = 5;
+        int i = n;
+        while (i < 5)
+        {
+            Console.WriteLine("1");
+            i++;
+        }
+        int j = n;
+        do
+        {
+            Console.WriteLine("1");
+            j++;
+        } while (j < 5); 
+        Console.WriteLine("do-while гарантирует минимум одно выполнение цикла");
+        //2 zadanie
+            int m = int.Parse(Console.ReadLine());
+            int c = 1;
+            while (c <= m)
+            {
+                Console.Write(c + " ");
+                c *= 2;
+            }
+            Console.WriteLine();
+        //3 zadanie
+            int d= int.Parse(Console.ReadLine());
+            long q = 0, w = 1;
+            int e = 0;
+            while (e < d)
+            {
+                Console.Write(q + " ");
+                long z = q + w;
+                q = w;
+                w = z;
+                e++;
+            }
+            Console.WriteLine();
+        }
+    }
+
