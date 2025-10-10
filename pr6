@@ -1,0 +1,97 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        // 1 zadanie
+        int a  = int.Parse(Console.ReadLine());
+        int[] a1 = new int[a];
+        for (int i = 0; i<a; i++)
+        {
+            a1[i] = int.Parse(Console.ReadLine());
+        }
+        for (int i = 0; i < a; i++)
+        {
+            Console.Write(a1[i]+" ");
+        }
+        Console.WriteLine();
+        // 2 zadanie
+        int x = int.Parse(Console.ReadLine());
+        int[] x1 = new int[x];
+        int[] x2 = new int[x];
+
+        for (int i = 0; i < x; i++)
+        {
+            x2[i] = int.Parse(Console.ReadLine());
+        }
+
+        int l = 0;
+        int r = x - 1;
+
+        for (int i = 0; i < x; i++)
+        {
+            if (i % 2 == 0)
+            {
+                x1[i] = x2[r];
+                r--;
+            }
+            else
+            {
+                x1[i] = x2[l];
+                l++;
+            }
+        }
+
+        for (int i = 0; i < x; i++)
+        {
+            Console.Write(x1[i] + " ");
+        }
+        Console.WriteLine();
+        //3 zadanie
+        int[,] array = new int[10, 10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                array[i, j] = j + 1;
+            }
+        }
+        int[] q1 = new int[10];
+        int[] q2 = new int[10];
+        for (int i = 0; i < 10; i++)
+        {
+            q2[i] = 1;
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                q1[i] += array[i, j];
+                q2[j] *= array[i, j];
+            }
+        }
+        int maxq1 = q1[0];
+        int maxq2 = q2[0];
+        for (int i = 1; i < 10; i++)
+        {
+            if (q1[i] > maxq1)
+                maxq1 = q1[i];
+
+            if (q2[i] > maxq2)
+                maxq2 = q2[i];
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(q1[i] + " ");
+        }
+        Console.WriteLine();
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write(q2[i] + " ");
+        }
+        Console.WriteLine();
+        Console.WriteLine(maxq1);
+        Console.WriteLine( maxq2);
+    }
+}
