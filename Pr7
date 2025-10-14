@@ -1,0 +1,50 @@
+using System;
+class Programm
+{
+    static void Main()
+    {//1 zadanie
+        string n = Console.ReadLine();
+        char s = Console.ReadLine()[0];
+        string[] a = n.Split(s);
+        Console.WriteLine(string.Join(" ", a));
+     //2 zaganie
+        string w = Console.ReadLine();
+        char si = Console.ReadLine()[0];
+        int c = 0;
+        string r = "";
+        foreach (char i in w)
+        {
+            if (char.ToUpper(i) == char.ToUpper(si))
+            {
+                c++;
+                r += char.ToUpper(i);
+            }
+            else
+            {
+                r += i;
+            }
+        }
+        Console.WriteLine(c);
+        Console.WriteLine(r);
+        //3 zaganie
+            string alp = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+            string wo = Console.ReadLine().ToUpper();
+            int t = int.Parse(Console.ReadLine());
+            string res = "";
+            foreach (char i in wo)
+            {
+                int ind = alp.IndexOf(i);
+                if (ind >= 0)
+                {
+                    int newInd= (ind + t) % 33;
+                    if (newInd < 0) newInd += 33;
+                    res += alp[newInd];
+                }
+                else
+                {
+                    res += c;
+                }
+            }
+            Console.WriteLine(res);
+        }
+    }
