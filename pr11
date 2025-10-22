@@ -1,0 +1,64 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        //1
+        int numberForFactorial = int.Parse(Console.ReadLine());
+        if (numberForFactorial < 0)
+        {
+            Console.WriteLine("Факториал отрицательного числа не определен!");
+        }
+        else
+        {
+            long resultFactorial = Factorial(numberForFactorial);
+            Console.WriteLine($"{numberForFactorial}! = {resultFactorial}");
+        }
+        static long Factorial(int n)
+        {
+            if (n <= 1)
+                return 1;
+            return n * Factorial(n - 1);
+        }
+
+        //2
+        int positionForFibonacci = int.Parse(Console.ReadLine());
+        if (positionForFibonacci < 0)
+        {
+            Console.WriteLine("Позиция не может быть отрицательной!");
+        }
+        else
+        {
+            int resultFibonacci = Fibonacci(positionForFibonacci);
+            Console.WriteLine($"F({positionForFibonacci}) = {resultFibonacci}");
+        }
+        static int Fibonacci(int n)
+        {
+            if (n == 0)
+                return 0;
+            if (n == 1)
+                return 1;
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+        //3
+        string input = Console.ReadLine();
+        string[] parts = input.Split(' ');
+        int[] numbers = new int[parts.Length];
+        for (int i = 0; i < parts.Length; i++)
+        {
+            numbers[i] = int.Parse(parts[i]);
+        }
+        int max = FindMax(numbers, 0);
+        Console.WriteLine("Максимальное число: " + max);
+    }
+    static int FindMax(int[] array, int index)
+    {
+        if (index == array.Length - 1)
+            return array[index];
+        int nextMax = FindMax(array, index + 1);
+        if (array[index] > nextMax)
+            return array[index];
+        else
+            return nextMax;
+    }
+}
